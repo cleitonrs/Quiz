@@ -3,6 +3,11 @@ A simple Quiz with vanilla javascript
 
 ## Can you guess what the film is by its title in Portuguese from Portugal?
 
+### Built with
+
+- Javascript
+- Bootstrap
+
 ### Screenchost
 
 ![cap1](https://github.com/cleitonrs/Quiz/assets/62728037/fc6c5bf1-924e-4fe6-997b-4c8e03e91ba5)
