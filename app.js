@@ -1,43 +1,58 @@
-const correctAnswer = ['B', 'B', 'A', 'B', 'A', 'B', 'A', 'A', 'B', 'B']
 const form = document.querySelector('.quiz-form')
-const finalResult = document.querySelector('.result')
+const finalScoreContainer = document.querySelector('.final-score-container')
+const correctAnswers = ['B', 'D', 'C', 'B', 'A', 'D', 'C', 'C', 'D', 'A']
 
-form.addEventListener('submit', event => {
-  event.preventDefault()
+let score = null
 
+getUserAnswer = () => {
+  let userAnswers = []
 
-  const userAnswers = [
-    form.inputQuestion1.value,
-    form.inputQuestion2.value,
-    form.inputQuestion3.value,
-    form.inputQuestion4.value,
-    form.inputQuestion5.value,
-    form.inputQuestion6.value,
-    form.inputQuestion7.value,
-    form.inputQuestion8.value,
-    form.inputQuestion9.value,
-    form.inputQuestion10.value
-  ]
+  correctAnswers.forEach((_, index) => {
+    const userAnswer = form[`inputQuestion${index + 1}`].value
+    userAnswers.push(userAnswer)
+  })
 
-  let score = 0
+  return userAnswers
+}
 
+const calculateUserScore = userAnswers => {
   userAnswers.forEach((userAnswer, index) => {
-    if (userAnswer === correctAnswer[index]) {
+    const isUserAnswerCorrect = userAnswer === correctAnswers[index]
+
+    if (isUserAnswerCorrect) {
       score += 10
     }
   })
-  
-  scrollTo(0, 0)
+}
 
-  finalResult.classList.remove('d-none')
-  
+const showFinalScore = () => {
+  scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  })
+  finalScoreContainer.classList.remove('d-none')
+}
+
+const animateFinalScore = () => {
   let counter = 0
   const timer = setInterval(() => {
     if (counter === score) {
       clearTimeout(timer)
     }
-    finalResult.querySelector('span').textContent = `${counter}%`
-    counter++  
-  }, 10)
-  
+    finalScoreContainer.querySelector('span').textContent = `${counter++}%` 
+  }, 20)
+}
+
+
+form.addEventListener('submit', event => {
+  event.preventDefault()
+
+  score = 0
+
+  const userAnswers = getUserAnswer()
+
+  calculateUserScore(userAnswers)
+  showFinalScore()
+  animateFinalScore() 
 })
