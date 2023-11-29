@@ -10,7 +10,7 @@ A simple Quiz with vanilla javascript
 
 ### Screenchost
 
-![cap1](https://github.com/cleitonrs/Quiz/assets/62728037/fc6c5bf1-924e-4fe6-997b-4c8e03e91ba5)
-![cap2](https://github.com/cleitonrs/Quiz/assets/62728037/10b406db-7610-4a74-bec8-c1073fa17586)
+![cap1](https://github.com/cleitonrs/Quiz/assets/62728037/a664cc96-bc63-42ef-91a2-eacb86036b90)
+![cap2](https://github.com/cleitonrs/Quiz/assets/62728037/94629d0c-5552-4cb0-8374-75aa877bb58e)
 
 Live Site URL: https://quizmovie.netlify.app/
